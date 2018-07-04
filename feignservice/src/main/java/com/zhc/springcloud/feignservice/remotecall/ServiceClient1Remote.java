@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "service-client1",fallback = RemoteHystric.class)
 public interface ServiceClient1Remote {
 
-    @RequestMapping(value = "/user/getName",method = RequestMethod.GET)
+    @RequestMapping(value = "/user1/getName",method = RequestMethod.GET)
     String getName(@RequestParam("id")String id);
 
 }
