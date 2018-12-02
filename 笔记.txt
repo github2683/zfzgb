@@ -30,3 +30,64 @@ Hydra(京东)
 Sleuth(Spring Cloud)
 Zipkin(Twitter)
 
+
+Spring Cloud
+	配置管理
+		Spring Cloud Config
+	服务治理
+	断路器
+	智能路由
+	微代理
+	控制总线
+	全局锁
+	决策竞选
+	分布式会话
+	集群状态管理
+	
+	Spring Cloud Netflix 核心组件
+		Eureka 	服务治理组件
+		Hystrix 容错管理组件
+		Ribbon 	客户端负载均衡服务调用组件
+		Feign 	基于 Hystrix和Ribbon的声明式服务调用组件
+		zuul	网关组件
+		Archaius外部化配置组件
+		
+	Spring Cloud Bus 事件、消息总线
+	
+	Spring Cloud Cluster 针对 Zookeeper,Redis,Hazelcast,Consul的选举算法和通用状态模式的实现
+	
+	Spring Cloud CloudFoundry 与Pivotal CloudFoundry的整合支持
+	
+	Spring Cloud Consul 服务发现与配置管理
+	
+	Spring Cloud Stream 通过Redis,Rabbit或Kafka实现消费微服务，可能过简单的声明模型来发送和接收消息
+	
+	Spring Cloud Security 安全工具包，提供在zuul代理中对OAuth2客户端请求的中继器
+	
+	
+starter POMs
+spring-boot-starter-* 
+
+
+spring-boot-starter-actuator    引入后启动 访问   localhost:8080/actuator 得到导航
+	应用配置类
+		/autoconfig 匹配成功和不成功的自动化配置信息
+		/beans 上下文中创建的所有bean
+		/configprops 配置属性信息报告
+		/env 所有可用的环境属性报告
+		/mappings 所有映射地址
+		/info 应用自定义的信息
+		
+		
+	度量指标类
+		/metrics 当前应用各类重要指标 内存，线程等信息
+		/health 健康指标信息
+		/dump 应用运行中显露线程信息
+		/trace 基于HTTP跟踪的信息
+		
+		
+	操作控制类
+		/shutdown 关闭应用
+	
+
+	
