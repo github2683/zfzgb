@@ -5,13 +5,13 @@
 >cd sjs 
 
 >npm run serve
-8080
+
 
 2.vue + weex (cjc)
 >cd cjc
 
 >npm start
-8081
+
 
 3.vue + iview (zjz) iview 的一个现成例子工程
 >npm install
@@ -19,7 +19,7 @@
 >npm run init 
 
 >npm run dev
-8080
+
 
 
 

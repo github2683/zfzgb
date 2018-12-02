@@ -1,0 +1,32 @@
+微服务关键字
+
+可以不同语言实现（为未来的nodejs,python,PHP项目做基础）
+
+自动化测试
+
+自动化部署
+
+容错
+服务治理项目：
+Dubbo(阿里巴巴）
+DubboX(当当)
+Eureka(Netflix)
+Consul(Apache)
+
+分布式配置管理：
+Disconf(百度)
+Archaius(Netflix)
+QConf(360)
+Config(Spring Cloud)
+Diamond(淘宝)
+
+批量任务
+Elastic-job(当当)
+Azkaban(LinkedIn)
+Task(Spring Cloud)
+
+服务跟踪
+Hydra(京东)
+Sleuth(Spring Cloud)
+Zipkin(Twitter)
+
