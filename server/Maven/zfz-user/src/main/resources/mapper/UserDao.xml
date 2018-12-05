@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zfz.user.dao.UserDao">
+
+
+    <insert id="add" parameterType="cn.zfz.pojo.entity.User">
+        INSERT INTO zfz.zfz_user
+        (id, username, phone, weixin, email, password, icon, seg, remark, create_time, update_time, opt_id) VALUES
+        (#{id},#{username},#{phone},#{weixin},#{email},#{password},#{icon},#{seg},#{remark},#{createTime},#{updateTime},#{optId})
+    </insert>
+    <update id="delete">
+        UPDATE  zfz.zfz_user SET status = 0  WHERE id=#{id}
+    </update>
+
+   <select id="get" resultType="cn.zfz.pojo.entity.User">
+       SELECT * FROM zfz.zfz_user WHERE id=#{id}
+   </select>
+    <update id="update" parameterType="cn.zfz.pojo.entity.User">
+        UPDATE zfz.zfz_user SET
+            <if test="username != null and username != '' "> username = #{username},</if>
+            <if test="phone != null and phone != '' ">phone = #{phone},</if>
+            <if test="weixin != null and weixin != '' ">weixin = #{weixin},</if>
+            <if test="email != null and email != '' ">email = #{email},</if>
+            <if test="password != null and password != '' ">password = #{password},</if>
+            <if test="icon != null and icon != '' ">icon = #{icon},</if>
+            <if test="seg != null and seg != '' ">seg = #{seg},</if>
+            <if test="remark != null and remark != '' ">remark =#{remark},</if>
+            <if test="optId != null and optId != '' ">opt_id = #{optId},</if>
+            update_time = #{updateTime}
+        WHERE id=#{id}
+    </update>
+
+    <select id="search" resultType="cn.zfz.pojo.entity.User" parameterType="cn.zfz.pojo.entity.User">
+        SELECT * from zfz.zfz_user
+    </select>
+
+    <select id="searchCount" resultType="java.lang.Integer" parameterType="cn.zfz.pojo.entity.User">
+        SELECT COUNT(*) from zfz.zfz_user
+    </select>
+
+    <select id="login" resultType="cn.zfz.pojo.entity.User">
+        SELECT * from zfz.zfz_user where username=#{username} OR phone=#{phone} OR email=#{emial} OR weixin = #{weixin}
+    </select>
+</mapper>

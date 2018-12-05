@@ -8,6 +8,7 @@ import cn.zfz.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,7 +18,7 @@ public class UserController extends BaseController<User> {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    @RequestMapping(value = "/add",method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin
     public Result add(User user){
@@ -73,7 +74,7 @@ public class UserController extends BaseController<User> {
             e = ex;
             //TODO 异常处理
         }
-        return responseDelete(id,affectRow,this.getClass(),e);
+        return responseGet(id,user,this.getClass(),e);
     }
 
     @RequestMapping(value = "/search",method = RequestMethod.POST)
@@ -92,4 +93,20 @@ public class UserController extends BaseController<User> {
         return responseSearch(user,users,this.getClass(),e);
     }
 
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public Result login(User user){
+        User u = null;
+        Exception e = null;
+        try {
+            u = userService.login(user);
+        } catch (Exception ex) {
+            e = ex;
+        }
+        List<User> users = new ArrayList();
+        users.add(u);
+
+        return responseSearch(user,users,this.getClass(),e);
+    }
 }

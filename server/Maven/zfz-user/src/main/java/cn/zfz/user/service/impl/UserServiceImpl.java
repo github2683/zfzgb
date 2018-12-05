@@ -7,6 +7,8 @@ import cn.zfz.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 用户的个性化功能实现
  */
@@ -18,9 +20,15 @@ public class UserServiceImpl extends BaseServiceImpl<User,UserDao> implements Us
 
     @Override
     public User login(User user) throws Exception{
-        User loginUser = userDao.login(user);
-        if(loginUser.getPassword().equals(Encrypt.encodeMD5(user.getPassword(),null))) {
-            return loginUser;
+        List<User> users = userDao.login(user);
+        if(users == null || users.size() == 0 ){
+            return null;
+        }
+        String pw = Encrypt.encodeMD5(user.getPassword(),null);
+        for(User u : users){
+            if(u.getPassword().equals(pw)){
+                return u;
+            }
         }
         return null;
     }

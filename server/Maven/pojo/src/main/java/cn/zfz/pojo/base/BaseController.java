@@ -27,6 +27,7 @@ public class BaseController<T extends Base> {
         logger.info(c.getName() + "新增参数：" + p);
         boolean flag = affectRow != null && affectRow>0;
         Result result = setResult(flag,e);
+        result.setData(p);
         return  result;
     }
 
@@ -110,6 +111,7 @@ public class BaseController<T extends Base> {
             logger.error("异常");
             result.setCode(Constants.RESPONE_CODE_EXCEPTION);
             result.setMsg(Constants.RESPONE_MSG_EXCEPTION);
+            e.printStackTrace();
         }else {
             if (flag) {
                 logger.info("成功");

@@ -27,31 +27,33 @@ spring:
 #spring.redis.pool.min-idle=0
 # 连接超时时间（毫秒）
 #spring.redis.timeout=0
-  data:
-    datasource:
-      url: jdbc:mysql://localhost:3308/zfz?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
-      username: root
-      password: rootroot
-      driverClassName:  com.mysql.jdbc.Driver
-      type: com.alibaba.druid.pool.DruidDataSource
-      #dataSource Pool configuration
-      initialSize: 5
-      minIdle: 5
-      maxActive: 20
-      maxWait: 60000
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: SELECT 1 FROM DUAL
-      testWhileIdle: true
-      testOnBorrow: false
-      exceptionSorter: true
-      testOnReturn: false
-      poolPreparedStatements: true
-      filters: stat,wall,log4j
-      maxPoolPreparedStatementPerConnectionSize: 20
+
+  datasource:
+    url: jdbc:mysql://localhost:3308/zfz?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: rootroot
+    driverClassName:  com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #dataSource Pool configuration
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    exceptionSorter: true
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
 #     connectionProperties: druid.stat.merge
 #     Sql: true
 #     druid:
 #       stat:
 #       slowSqlMillis: 500
-      useGlobalDataSourceStat: true
+    useGlobalDataSourceStat: true
+mybatis:
+  mapperLocations: classpath:mapper/*.xml

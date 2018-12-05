@@ -8,6 +8,7 @@ public class Base extends Search {
 
     private Integer seg;
     private String remark;
+    private Integer status;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
     private String optId;
@@ -49,6 +50,14 @@ public class Base extends Search {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public LocalDateTime getCreateTime() {
