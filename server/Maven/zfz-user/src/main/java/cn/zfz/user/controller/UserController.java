@@ -4,6 +4,7 @@ package cn.zfz.user.controller;
 import cn.zfz.pojo.base.BaseController;
 import cn.zfz.pojo.base.Result;
 import cn.zfz.pojo.entity.User;
+import cn.zfz.pojo.util.Encrypt;
 import cn.zfz.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,7 @@ public class UserController extends BaseController<User> {
         Integer affectRow = 0;
         Exception e = null;
         try {
+            user.setPassword(Encrypt.encodeMD5(user.getPassword(),null));
             affectRow = userService.add(user);
         }catch (Exception ex){
             e = ex;
