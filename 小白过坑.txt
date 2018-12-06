@@ -1,2 +1,5 @@
 
 1.启动类要在项目根目录（如 cn.zfz.user），然后controller,service,dao都放在些目录下再建包。否则就得在启动类上加 @ComponentScan("包名")才能找到（如 mybatis的xml文件放在别处就需要这个注解）
+
+2.mysql8 启动时报异常： Public Key Retrieval is not allowed 
+	解决： 在mysql的url加上参数 allowPublicKeyRetrieval=true 

@@ -1,25 +1,25 @@
-webpackJsonp([0],{
+webpackJsonp([2],{
 
-/***/ 23:
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(29)
+__webpack_require__(28)
 
 var Component = __webpack_require__(5)(
   /* script */
-  __webpack_require__(27),
+  __webpack_require__(25),
   /* template */
-  __webpack_require__(32),
+  __webpack_require__(31),
   /* scopeId */
-  "data-v-39b4e2b8",
+  "data-v-1aaeea3a",
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\workspace\\zfzgb\\web\\zjz\\src\\views\\user_manager.vue"
+Component.options.__file = "D:\\workspace\\zfzgb\\web\\zjz\\src\\views\\index.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] user_manager.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -28,9 +28,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-39b4e2b8", Component.options)
+    hotAPI.createRecord("data-v-1aaeea3a", Component.options)
   } else {
-    hotAPI.reload("data-v-39b4e2b8", Component.options)
+    hotAPI.reload("data-v-1aaeea3a", Component.options)
   }
 })()}
 
@@ -46,7 +46,7 @@ module.exports = __webpack_require__.p + "d3e0e6774b104f268cba7d3c405c75b5.png";
 
 /***/ }),
 
-/***/ 27:
+/***/ 25:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97,8 +97,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         handleStart: function handleStart() {
             this.$Modal.info({
-                title: '登录表单',
-                content: '输入用户名和密码'
+                title: 'Bravo',
+                content: 'Now, enjoy the convenience of iView.'
             });
         }
     }
@@ -106,14 +106,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 29:
+/***/ 28:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 32:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -133,21 +133,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "src": __webpack_require__(24)
     }
-  })]), _vm._v(" "), _c('h2', [_c('p', [_vm._v("用户管理")]), _vm._v(" "), _c('Button', {
+  })]), _vm._v(" "), _c('h2', [_c('p', [_vm._v("Welcome to your iView app!")]), _vm._v(" "), _c('Button', {
     on: {
       "click": _vm.handleStart
     }
-  }, [_vm._v("去登录")])], 1)])], 1)], 1)
+  }, [_vm._v("Start iView")])], 1)])], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-39b4e2b8", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-1aaeea3a", module.exports)
   }
 }
 
 /***/ })
 
 });
-//# sourceMappingURL=0.chunk.js.map
+//# sourceMappingURL=2.chunk.js.map

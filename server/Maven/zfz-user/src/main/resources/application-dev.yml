@@ -2,8 +2,14 @@ server:
   port: 8011  #服务端口
 
 # REDIS (RedisProperties)
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://192.168.88.204:8001/eureka/
+#      defaultZone:  http://192.168.88.204:8001/eureka/,http://192.168.88.204:8002/eureka/,http://192.168.88.204:8003/eureka/ #注册中心集群
 spring:
+  application:
+    name: zfz-user
   redis:
     database: 0 # Redis数据库索引（默认为0）
     host: localhost
@@ -29,7 +35,7 @@ spring:
 #spring.redis.timeout=0
 
   datasource:
-    url: jdbc:mysql://localhost:3308/zfz?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3308/zfz?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: rootroot
     driverClassName:  com.mysql.cj.jdbc.Driver

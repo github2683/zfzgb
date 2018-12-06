@@ -13,5 +13,12 @@ const routers = [
         },
         component: (resolve) => require(['./views/login.vue'], resolve)
     },
+    {
+        path: '/user_manager',
+        meta: {
+            title: ''
+        },
+        component: (resolve) => require(['./views/user_manager.vue'], resolve)
+    },
 ];
 export default routers;
