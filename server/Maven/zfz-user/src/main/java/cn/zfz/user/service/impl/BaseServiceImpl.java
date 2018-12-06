@@ -10,8 +10,8 @@ import java.util.List;
 
 public class BaseServiceImpl<T extends Base,Dao extends BaseDao> implements BaseService<T> {
 
-    @Autowired
-    private Dao dao;
+
+    protected Dao dao;
 
     @Override
     public Integer add(T t)throws Exception {
@@ -35,6 +35,8 @@ public class BaseServiceImpl<T extends Base,Dao extends BaseDao> implements Base
 
     @Override
     public List<T> search(T t)throws Exception {
+
+
         return null;
     }
 }

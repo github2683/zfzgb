@@ -15,6 +15,7 @@ public class Search {
     private Integer limit;//一页几条
     private Integer total;//总数
 
+
     public Search() {
     }
 

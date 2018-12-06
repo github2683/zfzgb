@@ -18,6 +18,17 @@ public class UserServiceImpl extends BaseServiceImpl<User,UserDao> implements Us
     @Autowired
     private UserDao userDao;
 
+
+//    public UserServiceImpl() {
+////        this.dao = this.userDao;
+////    }
+
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        System.out.println( "=================>" + userDao);
+        this.dao = userDao;
+    }
+
     @Override
     public User login(User user) throws Exception{
         List<User> users = userDao.login(user);

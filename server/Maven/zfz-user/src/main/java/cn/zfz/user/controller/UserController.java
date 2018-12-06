@@ -12,103 +12,62 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController extends BaseController<User> {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/add",method = RequestMethod.GET)
-    @ResponseBody
-    @CrossOrigin
-    public Result add(User user){
-        Integer affectRow = 0;
-        Exception e = null;
-        try {
-            user.setPassword(Encrypt.encodeMD5(user.getPassword(),null));
-            affectRow = userService.add(user);
-        }catch (Exception ex){
-            e = ex;
-            //TODO 异常处理
-        }
-        return responseAdd(user,affectRow,this.getClass(),e);
-    }
-    @RequestMapping(value = "/delete",method = RequestMethod.GET)
-    @ResponseBody
-    @CrossOrigin
-    public Result delete(String id){
-        Integer affectRow = 0;
-        Exception e = null;
-        try {
-            affectRow = userService.delete(id);
-        }catch (Exception ex){
-            e = ex;
-            //TODO 异常处理
-        }
-        return responseDelete(id,affectRow,this.getClass(),e);
-    }
-    @RequestMapping(value = "/update",method = RequestMethod.POST)
-    @ResponseBody
-    @CrossOrigin
-    public Result update(User user){
-        Integer affectRow = 0;
-        Exception e = null;
-        try {
-            affectRow = userService.update(user);
-        }catch (Exception ex){
-            e = ex;
-            //TODO 异常处理
-        }
-        return responseUpdate(user,affectRow,this.getClass(),e);
+
+
+
+    @GetMapping("/add")
+    public Result add(User user) throws Exception {
+
+        user.setPassword(Encrypt.encodeMD5(user.getPassword(),null));
+        Integer affectRow = userService.add(user);
+
+        return responseAdd(user,affectRow,this.getClass());
     }
 
-    @RequestMapping(value = "/get",method = RequestMethod.GET)
-    @ResponseBody
-    @CrossOrigin
-    public Result get(String id){
-        Integer affectRow = 0;
-        Exception e = null;
-        User user = null;
-        try {
-            user = userService.get(id);
-        }catch (Exception ex){
-            e = ex;
-            //TODO 异常处理
-        }
-        return responseGet(id,user,this.getClass(),e);
+    @GetMapping("/delete")
+    public Result delete(String id) throws Exception {
+        Integer affectRow =  userService.delete(id);
+
+        return responseDelete(id,affectRow,this.getClass());
     }
 
-    @RequestMapping(value = "/search",method = RequestMethod.POST)
-    @ResponseBody
-    @CrossOrigin
-    public Result search(User user){
-        List<User> users = null;
-        Exception e = null;
+    @PostMapping("/update")
+    public Result update(User user) throws Exception {
+        Integer affectRow = userService.update(user);
 
-        try {
-            users = userService.search(user);
-        }catch (Exception ex){
-            e = ex;
-            //TODO 异常处理
-        }
-        return responseSearch(user,users,this.getClass(),e);
+        return responseUpdate(user,affectRow,this.getClass());
     }
 
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
-    @ResponseBody
-    @CrossOrigin
-    public Result login(User user){
-        User u = null;
-        Exception e = null;
-        try {
-            u = userService.login(user);
-        } catch (Exception ex) {
-            e = ex;
-        }
+    @GetMapping("/get")
+    public Result get(String id) throws Exception {
+        User user = userService.get(id);
+
+        return responseGet(id,user,this.getClass());
+    }
+
+
+    @PostMapping("/search")
+    public Result search(User user) throws Exception {
+        List<User> users = userService.search(user);
+
+        return responseSearch(user,users,this.getClass());
+    }
+
+
+    @GetMapping("/login")
+    public Result login(User user) throws Exception {
+        User u = userService.login(user);
+
         List<User> users = new ArrayList();
         users.add(u);
 
-        return responseSearch(user,users,this.getClass(),e);
+        return responseSearch(user,users,this.getClass());
     }
 }

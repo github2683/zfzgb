@@ -3,7 +3,7 @@ package cn.zfz.pojo.base;
 public class Result {
     private String msg;
     private Integer code;
-    private String data;//数据的JSON格式
+    private Object data;//数据的JSON格式
 
     private Integer page;//第几页
     private Integer limit;//一页几条
@@ -27,11 +27,11 @@ public class Result {
         this.code = code;
     }
 
-    public String getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Object data) {
         this.data = data;
     }
 
