@@ -53,10 +53,14 @@ public class UserController extends BaseController<User> {
     }
 
 
-    @PostMapping("/search")
+    @GetMapping("/search")
     public Result search(User user) throws Exception {
         List<User> users = userService.search(user);
-
+        if(user.getPage() == null || user.getPage() == 1){
+            Integer total = userService.searchCount(user);
+            total = total==null?0:total;
+            user.setTotal(total);
+        }
         return responseSearch(user,users,this.getClass());
     }
 

@@ -13,7 +13,7 @@
     </update>
 
    <select id="get" resultType="cn.zfz.pojo.entity.User">
-       SELECT * FROM zfz.zfz_user WHERE id=#{id}
+       SELECT * FROM zfz.zfz_user  WHERE id=#{id}
    </select>
     <update id="update" parameterType="cn.zfz.pojo.entity.User">
         UPDATE zfz.zfz_user SET
@@ -31,11 +31,12 @@
     </update>
 
     <select id="search" resultType="cn.zfz.pojo.entity.User" parameterType="cn.zfz.pojo.entity.User">
-        SELECT * from zfz.zfz_user
+        SELECT * from zfz.zfz_user WHERE status > 0
+        limit #{start},#{limit}
     </select>
 
     <select id="searchCount" resultType="java.lang.Integer" parameterType="cn.zfz.pojo.entity.User">
-        SELECT COUNT(*) from zfz.zfz_user
+        SELECT COUNT(*) from zfz.zfz_user  WHERE status > 0
     </select>
 
     <select id="login" resultType="cn.zfz.pojo.entity.User">

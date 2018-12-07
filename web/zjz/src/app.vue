@@ -4,10 +4,10 @@
 <template>
 
     <Row>
-        <Col span="3" v-if="hasMenu" style="z-index: 999;">
+        <Col v-bind:span="menuWidth" v-if="hasMenu" v-on:changeTopTheme="changeWidth()" style="z-index: 999;">
             <NavMenu></NavMenu>
         </Col>
-        <Col span="21">
+        <Col v-bind:span="topWidth">
             <Row v-if="hasTop">
                 <Col span="24">
                     <NavTop></NavTop>
@@ -33,7 +33,10 @@
     export default {
         components: {NavMenu, NavTop},
         data () {
-            return {}
+            return {
+                topWidth:21,
+                menuWidth:3
+            }
         },
         mounted () {
 
@@ -44,13 +47,20 @@
         computed: {
             hasTop:function () {
                 let login =  window.location.href.indexOf("login")<0;
-                console.log(login);
+                console.log(login?'要头条导航':'不要头条导航');
                 return login;
             },
             hasMenu:function () {
                 let login =  window.location.href.indexOf("login")<0;
-                console.log(login);
+                console.log(login?'要菜单':'不要菜单');
                 return login;
+            }
+        },
+        methods:{
+            changeWidth:function () {
+                debugger;
+                this.topWidth = 23;
+                this.menuWidth = 1;
             }
         }
     }

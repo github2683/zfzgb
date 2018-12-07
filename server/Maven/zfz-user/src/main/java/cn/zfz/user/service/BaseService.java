@@ -15,4 +15,6 @@ public interface BaseService<T extends  Base> {
     T get(String id)throws Exception;
 
     List<T> search(T t)throws Exception;
+
+    Integer searchCount(T t)throws Exception;
 }

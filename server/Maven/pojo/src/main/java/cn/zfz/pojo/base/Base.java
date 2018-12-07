@@ -16,15 +16,16 @@ public class Base extends Search {
     public Base(){
     }
 
-    private void addInit(){
+    public void addInit(){
         if( this.id == null || this.id.trim().length()==0 ){
             this.id = UUID.randomUUID().toString();
         }
         this.updateTime = LocalDateTime.now();
         this.createTime = this.updateTime;
+        this.status = 1;
     }
 
-    private void updateInit(){
+    public void updateInit(){
         this.updateTime = LocalDateTime.now();
     }
 

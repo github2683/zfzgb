@@ -13,7 +13,9 @@ public interface BaseDao<T extends Base> {
 
     Integer update(T t)throws SQLException;
 
-    T get(String id)throws SQLException;
+    public T get(String id)throws SQLException;
 
     List<T> search(T t)throws SQLException;
+
+    Integer searchCount(T t)throws SQLException;
 }

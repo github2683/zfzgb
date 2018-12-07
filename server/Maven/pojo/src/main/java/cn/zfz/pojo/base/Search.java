@@ -12,7 +12,8 @@ public class Search {
     private LocalDateTime endUpdateTime;
 
     private Integer page;//第几页
-    private Integer limit;//一页几条
+    private Integer start;//开始第几条
+    private Integer limit = 30;//一页几条
     private Integer total;//总数
 
 
@@ -65,6 +66,18 @@ public class Search {
 
     public void setPage(Integer page) {
         this.page = page;
+    }
+
+    public Integer getStart() {
+        if(this.page == null || this.page == 0 || this.page == 1 ){
+            return 0;
+        }else {
+            return (this.page - 1) * this.limit;
+        }
+    }
+
+    public void setStart(Integer start) {
+        this.start = start;
     }
 
     public Integer getLimit() {
