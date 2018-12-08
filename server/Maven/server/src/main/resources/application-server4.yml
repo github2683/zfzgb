@@ -7,7 +7,7 @@ eureka:
     register-with-eureka: true #自己注册以下两个服务上
     fetch-registry: false #不需要去检索服务
     service-url:
-      defaultZone:  http://localhsot:8001/eureka/,http://server2:8002/eureka/
+      defaultZone:  http://server1:8001/eureka/,http://server2:8002/eureka/
 spring:
   application:
     name: server

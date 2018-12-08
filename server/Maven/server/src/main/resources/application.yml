@@ -3,7 +3,7 @@ server:
   port: 8001 #注册中心端口
 eureka:
   instance:
-    hostname: localhost
+    hostname: server1
   client:
     register-with-eureka: true #自己注册以下两个服务上
     fetch-registry: false #不需要去检索服务
