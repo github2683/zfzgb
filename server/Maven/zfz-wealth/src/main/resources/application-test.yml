@@ -1,5 +1,5 @@
 server:
-  port: 8012  #服务端口
+  port: 8023  #服务端口
 
 # REDIS (RedisProperties)
 eureka:
@@ -9,7 +9,7 @@ eureka:
       defaultZone:  http://192.168.88.204:8001/eureka/,http://192.168.88.204:8002/eureka/,http://192.168.88.204:8004/eureka/ #注册中心集群
 spring:
   application:
-    name: zfz-user
+    name: zfz-wealth
   redis:
     database: 0 # Redis数据库索引（默认为0）
     host: localhost

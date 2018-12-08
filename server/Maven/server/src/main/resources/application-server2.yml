@@ -3,6 +3,7 @@ server:
 eureka:
   instance:
     hostname: server2
+#    prefer-ip-address: true #开启用IP来指定服务地址，默认是false,所以要在hosts文件里加上 127.0.0.1 server2
   client:
     register-with-eureka: true #自己注册以下两个服务上
     fetch-registry: false #不需要去检索服务
