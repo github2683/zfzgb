@@ -1,10 +1,13 @@
 server:
-  port: 8003 #注册中心端口
+  port: 8002 #注册中心端口
 eureka:
   instance:
-    hostname: localhost
+    hostname: server2
   client:
-    register-with-eureka: false #不自己注册自己
+    register-with-eureka: true #自己注册以下两个服务上
     fetch-registry: false #不需要去检索服务
     service-url:
-      defaultZone:  http://${eureka.instance.hostname}:8002/eureka/ #注册中心地址
+      defaultZone: http://localhost:8001/eureka/,http://server4:8004/eureka/
+spring:
+  application:
+    name: server
