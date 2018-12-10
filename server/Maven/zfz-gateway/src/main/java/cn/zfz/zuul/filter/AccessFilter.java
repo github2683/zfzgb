@@ -58,9 +58,22 @@ public class AccessFilter extends ZuulFilter {
         logger.info("accesstoken="+accesstoken);
         if(accesstoken == null){
             logger.warn(" no permisstion ");
-            ctx.setSendZuulResponse(true);
-            ctx.setResponseStatusCode(200);
+//            ctx.setSendZuulResponse(true);
+//            ctx.setResponseStatusCode(200);
+            //过滤该请求，不往下级服务去转发请求，到此结束
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(401);
+            ctx.setResponseBody("{\"result\":\"accessToken为空!\"}");
+            ctx.getResponse().setContentType("text/html;charset=UTF-8");
+
+        }else{
+            //正常通过
+
+            //或者可以设置
+//            ctx.setSendZuulResponse(true);
+//            ctx.setResponseStatusCode(200);
         }
+
         return null;
     }
 }

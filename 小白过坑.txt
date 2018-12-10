@@ -5,3 +5,5 @@
 	解决： 在mysql的url加上参数 allowPublicKeyRetrieval=true 
 	
 3.分布式注册服务中心 eurek服务注册中心配置 register-with-eureka: true #自己注册到 defaultZone 的多地址上 ，也注册到自身  server.port启动的服务是自己
+
+4.zuul 必须加上 pom里的 spring-cloud-starter-eureka 。不然会提示 Caused by: com.netflix.client.ClientException: Load balancer does not have available server for client: zuul-server
