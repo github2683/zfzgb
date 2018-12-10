@@ -96,6 +96,29 @@ public class BaseController<T extends Base> {
     }
 
     /**
+     *  无数返回的操作返回
+     * @param param1 第一个参数
+     * @param param2 第二个参数
+     * @param flag 执行结果状态,true 为成功，false 为失败
+     * @param msg 操作说明
+     * @param c 真实调用此方法的类
+     * @return 返回通用响应对象
+     */
+    protected Result responseExcuteState(Object param1,Object param2,boolean flag,String msg,Class c){
+        String info = c.getName() + " \n " + (msg == null?"":msg) + " " + (flag?"成功":"失败");
+        if(param1 != null){
+            info += "\n 第一个参数：" + JSONObject.toJSONString(param1);
+        }
+        if(param2 != null){
+            info += "\n 第二个参数：" + JSONObject.toJSONString(param2);
+        }
+        logger.info(info);
+        Result result = setResult(flag);
+        result.setMsg(msg);
+        return result;
+    }
+
+    /**
      * 响应基础数据设置
      * @param flag 成功或失败标志
      * @return

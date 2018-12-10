@@ -1,9 +1,8 @@
 package cn.zfz.wealth.service;
 
-import cn.zfz.pojo.base.Result;
+import cn.zfz.api.service.UserServiceApi;
 import cn.zfz.wealth.components.UserServiceCallBack;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 
 /**
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * UserServiceCallBack 中定义了容错
  */
 @FeignClient(value = "zfz-user",fallback = UserServiceCallBack.class)
-public interface UserService {
+public interface UserService  extends UserServiceApi {
 
-    @RequestMapping("/get")
-    Result get(String id);
 }

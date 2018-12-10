@@ -1,6 +1,7 @@
 package cn.zfz.user.controller;
 
 
+import cn.zfz.api.service.UserServiceApi;
 import cn.zfz.pojo.base.BaseController;
 import cn.zfz.pojo.base.Result;
 import cn.zfz.pojo.entity.User;
@@ -12,17 +13,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin
 @RestController
-@RequestMapping("/user")
-public class UserController extends BaseController<User> {
+public class UserController extends BaseController<User> implements UserServiceApi {
+
     @Autowired
     private UserService userService;
 
 
-
-
-    @GetMapping("/add")
     public Result add(User user) throws Exception {
 
         user.setPassword(Encrypt.encodeMD5(user.getPassword(),null));
@@ -31,21 +28,21 @@ public class UserController extends BaseController<User> {
         return responseAdd(user,affectRow,this.getClass());
     }
 
-    @GetMapping("/delete")
+
     public Result delete(String id) throws Exception {
         Integer affectRow =  userService.delete(id);
 
         return responseDelete(id,affectRow,this.getClass());
     }
 
-    @PostMapping("/update")
+
     public Result update(User user) throws Exception {
         Integer affectRow = userService.update(user);
 
         return responseUpdate(user,affectRow,this.getClass());
     }
 
-    @GetMapping("/get")
+
     public Result get(String id) throws Exception {
         User user = userService.get(id);
 
@@ -53,7 +50,7 @@ public class UserController extends BaseController<User> {
     }
 
 
-    @GetMapping("/search")
+
     public Result search(User user) throws Exception {
         List<User> users = userService.search(user);
         if(user.getPage() == null || user.getPage() == 1){

@@ -1,4 +1,4 @@
-package cn.zfz.user.interceptor;
+package cn.zfz.wealth.interceptor;
 
 import cn.zfz.pojo.base.Constants;
 import cn.zfz.pojo.base.Result;
@@ -40,7 +40,7 @@ public class GobelExceptionInterceptor {
         result.setMsg(Constants.RESPONE_MSG_EXCEPTION);
         result.setData(ex.getMessage());
 
-        logger.error( this.getClass().getName() + " ===========> 注解拦截器 " + ex.getMessage());
+        logger.error( this.getClass().getName() + " =======> 注解拦截器 " + ex.getMessage());
 //        ex.printStackTrace();
 
         return result;
