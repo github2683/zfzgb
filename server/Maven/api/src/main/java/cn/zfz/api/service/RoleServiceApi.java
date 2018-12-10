@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.*;
 public interface RoleServiceApi {
 
     @GetMapping("/add")
-    Result add(@RequestBody Role role) throws Exception ;
+    Result add(Role role) throws Exception ;
 
     @GetMapping("/delete")
     Result delete(@RequestParam("id") String id) throws Exception ;
 
     @PostMapping("/update")
-    Result update(@RequestBody Role role) throws Exception ;
+    Result update(Role role) throws Exception ;
 
 
     @GetMapping("/get")
     Result get(@RequestParam("id")String id) throws Exception ;
 
     @GetMapping("/search")
-    Result search(@RequestBody Role role) throws Exception ;
+    Result search(Role role) throws Exception ;
 
 
 }

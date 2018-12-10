@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 public interface UserServiceApi  {
 
     @GetMapping("/add")
-    Result add(@RequestBody User user) throws Exception ;
+    Result add(User user) throws Exception ;
 
     @GetMapping("/delete")
     Result delete(@RequestParam("id") String id) throws Exception ;
 
     @PostMapping("/update")
-    Result update(@RequestBody User user) throws Exception ;
+    Result update(User user) throws Exception ;
 
     @GetMapping("/get")
     Result get(@RequestParam("id")String id) throws Exception ;

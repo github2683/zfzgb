@@ -36,7 +36,13 @@ axios.interceptors.request.use(function (config) {
     console.log(" axios 请求拦截 " );
     console.log(config );
     if(config.method == "get"){
-        config.url = config.url + "&accesstoken=abc"
+        let url = config.url;
+        if(url.indexOf("?")>0){
+            url +=  "&accesstoken=abc";
+        }else{
+            url += "?accesstoken=abc";
+        }
+        config.url = url;
     }
     return config;
 }, function (error) {
