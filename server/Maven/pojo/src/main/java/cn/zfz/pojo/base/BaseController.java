@@ -70,7 +70,7 @@ public class BaseController<T extends Base> {
      */
     protected Result responseGet(String id,T t,Class c ){
         String p = t == null?"":JSONObject.toJSONString(t);
-        logger.info(c.getName() + "Get参数：id=" + id +"Get结果：" + p);
+        logger.info(c.getName() + " : Get参数：id=" + id +"\nGet结果：" + p);
         Result result = setResult(t != null);
         result.setData(t);
         return result;
@@ -86,7 +86,7 @@ public class BaseController<T extends Base> {
     protected Result responseSearch(T t,List<T> ts,Class c){
         String p = JSON.toJSONString(t);
         String data = ts != null? JSONObject.toJSONString(ts):"";
-        logger.info(c.getName() + "查询参数：" + p + "查询结果：" + data);
+        logger.info(c.getName() + " : 查询参数：" + p + "\n查询结果：" + data);
         Result result = setResult(ts != null);
         result.setTotal(t.getTotal());
         result.setPage(t.getPage());
