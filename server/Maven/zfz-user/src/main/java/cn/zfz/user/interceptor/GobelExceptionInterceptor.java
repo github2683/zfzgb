@@ -41,7 +41,7 @@ public class GobelExceptionInterceptor {
         result.setData(ex.getMessage());
 
         logger.error( this.getClass().getName() + " ===========> 注解拦截器 " + ex.getMessage());
-//        ex.printStackTrace();
+        ex.printStackTrace();
 
         return result;
     }

@@ -5,8 +5,8 @@
 
     <insert id="add" parameterType="cn.zfz.pojo.entity.User">
         INSERT INTO zfz.zfz_user
-        (id, username, phone, weixin, email, password, icon, seg, remark, create_time, update_time, opt_id) VALUES
-        (#{id},#{username},#{phone},#{weixin},#{email},#{password},#{icon},#{seg},#{remark},#{createTime},#{updateTime},#{optId})
+        (id, username, phone, weixin, email, password, icon, seg, remark,status, create_time, update_time, opt_id) VALUES
+        (#{id},#{username},#{phone},#{weixin},#{email},#{password},#{icon},#{seg},#{remark},#{status},#{createTime},#{updateTime},#{optId})
     </insert>
     <update id="delete">
         UPDATE  zfz.zfz_user SET status = 0  WHERE id=#{id}

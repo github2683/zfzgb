@@ -257,7 +257,7 @@
                     title:'删除确认提示',
                     content:'确定删除' + user.username,
                     onOk:function () {
-                        let url = config.userServerUrl + 'delete?id=' + xthis.userData[index].id;
+                        let url = config.url.server.zfz_user.user + 'delete?id=' + xthis.userData[index].id;
                         axios.get(url).then(function (res) {
 
                             console.log(res.data);//返回的整个对象
@@ -286,7 +286,7 @@
 
             },
             getData(index){
-                let url = config.userServerUrl + 'get?id='+ this.userData[index].id;
+                let url = config.url.server.zfz_user.user + 'get?id='+ this.userData[index].id;
                 axios.get(url).then(function (data) {
                     console.log("请求结束");
                     console.log(data);
@@ -301,22 +301,27 @@
                 this.$refs[name].validate((valid) => {
 
                     console.log(xthis.formValidate);
-                    let url = config.userServerUrl + 'add';
+                    let url = config.url.server.zfz_user.user + 'add';
+                    let opt = '新增';
+                    if(xthis.formValidate.id){
+                        url = config.url.server.zfz_user.user + 'update';
+                        opt = '更新';
+                    }
                     axios.get(url,{params:xthis.formValidate}).then(function (res) {
 
                         console.log(res.data);//返回的整个对象
                         let d = res.data;
                         if ( d.code == 8001 ) {
 
-                            xthis.$Message.success('新增成功!');
+                            xthis.$Message.success( opt + '成功!');
 
                             xthis.userData.unshift(d.data);
                             xthis.total += 1;
                         } else {
-                            xthis.$Message.error('新增失败!');
+                            xthis.$Message.error(opt + '失败!');
                         }
                     }).catch(function () {
-                        xthis.$Message.error(" 新增 异常 ");
+                        xthis.$Message.error(opt + "异常 ");
                     })
 
 
@@ -329,7 +334,8 @@
             loadData:function (page) {
                 this.page = page?page:1;
 
-                let url = config.userServerUrl + 'search?page='+ this.page +'&limit=10';
+                // let url = config.userServerUrl + 'search?page='+ this.page +'&limit=10';
+                let url = config.url.server.zfz_user.user + 'search?page='+ this.page +'&limit=10';
                 let xthis = this;
                 axios.get(url)
                     .then(function (res) {

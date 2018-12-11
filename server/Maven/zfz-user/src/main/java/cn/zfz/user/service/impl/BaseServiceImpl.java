@@ -6,7 +6,7 @@ import cn.zfz.user.service.BaseService;
 
 import java.util.List;
 
-public class BaseServiceImpl<T extends Base,Dao extends BaseDao> implements BaseService<T> {
+public class BaseServiceImpl<T extends Base,Dao extends BaseDao<T>> implements BaseService<T> {
 
 
     protected Dao dao;
@@ -31,10 +31,7 @@ public class BaseServiceImpl<T extends Base,Dao extends BaseDao> implements Base
 
     @Override
     public T get(String id)throws Exception {
-
-        Base base = dao.get(id);
-        return (T) base;
-//        return dao.get(id);
+        return dao.get(id);
     }
 
     @Override

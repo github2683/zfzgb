@@ -6,9 +6,9 @@ import java.util.UUID;
 public class Base extends Search {
     private String id;
 
-    private Integer seg;
-    private String remark;
     private Integer status;
+    private String remark;
+    private Integer seg;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
     private String optId;

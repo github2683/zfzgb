@@ -19,13 +19,8 @@ public class UserServiceImpl extends BaseServiceImpl<User,UserDao> implements Us
     private UserDao userDao;
 
 
-//    public UserServiceImpl() {
-////        this.dao = this.userDao;
-////    }
-
     @Autowired
     public void setUserDao(UserDao userDao) {
-        System.out.println( "=================>" + userDao);
         this.dao = userDao;
     }
 

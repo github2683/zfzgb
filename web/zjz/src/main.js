@@ -35,15 +35,19 @@ axios.interceptors.request.use(function (config) {
     // Do something before request is sent
     console.log(" axios 请求拦截 " );
     console.log(config );
-    if(config.method == "get"){
-        let url = config.url;
-        if(url.indexOf("?")>0){
-            url +=  "&accesstoken=abc";
-        }else{
-            url += "?accesstoken=abc";
-        }
-        config.url = url;
+
+    let url = config.url;
+    if(url.indexOf("?")>0){
+        url +=  "&accesstoken=abc";
+    }else{
+        url += "?accesstoken=abc";
     }
+    let optId = 'zhc';
+    url = url + '&optId=' + optId;
+    config.url = url;
+
+
+
     return config;
 }, function (error) {
     // Do something with request error

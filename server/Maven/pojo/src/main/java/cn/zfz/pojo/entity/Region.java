@@ -2,13 +2,13 @@ package cn.zfz.pojo.entity;
 
 import cn.zfz.pojo.base.Base;
 
-public class Org extends Base {
-    private String name;//组织名称
-    private String icon;//组织图标
-    private String pid;//组织父ID
-    private String pids;//所有父组织ID
+public class Region extends Base {
+    private String name;//区域名称
+    private String icon;//区域图标
+    private String pid;//区域父ID
+    private String pids;//所有父区域ID
 
-    public Org() {
+    public Region() {
     }
 
     public String getName() {

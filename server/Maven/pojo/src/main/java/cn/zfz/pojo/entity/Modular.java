@@ -1,6 +1,8 @@
 package cn.zfz.pojo.entity;
 
-public class Modular {
+import cn.zfz.pojo.base.Base;
+
+public class Modular extends Base {
     private String name;//模块名称
     private String icon;//模块图标
 
