@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: zfz-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://github.com
+          search-paths: spring_cloud_in_action/config-repo
+          username: 1009600394@qq.com
+          password: abc
+server:
+  port: 9999
