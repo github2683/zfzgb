@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequestMapping("/user")
 @RestController
-public class UserController extends BaseController<User> implements UserServiceApi {//extends BaseServiceApiImpl<User,UserService>
+public class UserController extends BaseController<User> implements UserServiceApi<User> {//extends BaseServiceApiImpl<User,UserService>
 
     @Autowired
     private UserService service;

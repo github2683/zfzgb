@@ -5,8 +5,8 @@ server:
 eureka:
   client:
     serviceUrl:
-#      defaultZone:  http://192.168.88.204:8001/eureka/
-      defaultZone:  http://192.168.88.204:8001/eureka/,http://192.168.88.204:8002/eureka/,http://192.168.88.204:8004/eureka/ #注册中心集群
+      defaultZone:  http://192.168.88.204:8001/eureka/
+#      defaultZone:  http://192.168.88.204:8001/eureka/,http://192.168.88.204:8002/eureka/,http://192.168.88.204:8004/eureka/ #注册中心集群
 spring:
   application:
     name: zfz-user

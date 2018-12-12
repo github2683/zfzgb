@@ -5,8 +5,8 @@ server:
 eureka:
   client:
     serviceUrl:
-#      defaultZone:  http://192.168.88.204:8001/eureka/
-      defaultZone:  http://192.168.88.204:8001/eureka/,http://192.168.88.204:8002/eureka/,http://192.168.88.204:8004/eureka/ #注册中心集群
+      defaultZone:  http://192.168.88.204:8001/eureka/
+#      defaultZone:  http://192.168.88.204:8001/eureka/,http://192.168.88.204:8002/eureka/,http://192.168.88.204:8004/eureka/ #注册中心集群
 #  instance:
 #    lease-renewal-interval-in-seconds: 30 # 默认30秒发送一次注册到注册中心
 #    lease-expiration-duration-in-seconds: 90 # 注册后有效时间，默认90秒

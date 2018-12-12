@@ -110,7 +110,8 @@
         methods: {
             loadData(){
 
-                let url = config.userServerUrl
+                let url = config.url.server.zfz_user.org + 'search';
+
             },
             renderContent (h, { root, node, data }) {
                 return h('span', {

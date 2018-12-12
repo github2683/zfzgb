@@ -10,6 +10,6 @@ spring:
 #          search-paths: server/config/server,server/config/zfz-gateway,server/config/zfz-user,server/config/zfz-wealth
           username: 1009600394@qq.com
           password: 851121123abc
-        prefix: server2
+        prefix: application
 server:
   port: 9999
