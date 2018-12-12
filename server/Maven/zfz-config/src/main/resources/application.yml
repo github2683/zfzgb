@@ -5,9 +5,11 @@ spring:
     config:
       server:
         git:
-          uri: http://github.com
-          search-paths: spring_cloud_in_action/config-repo
+          uri: https://github.com/github2683/zfzgb
+          search-paths: server/config/server
+#          search-paths: server/config/server,server/config/zfz-gateway,server/config/zfz-user,server/config/zfz-wealth
           username: 1009600394@qq.com
-          password: abc
+          password: 851121123abc
+        prefix: server2
 server:
   port: 9999
