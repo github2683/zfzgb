@@ -13,18 +13,28 @@
                         修改
                     </a>
 
-                    <Table border :columns="userTableTitle" :data="tableData"></Table>
-                    <br/>
-                    <Page :total="total" show-sizer show-elevator show-total v-on:on-change="loadData" />
-                    <br>
                     <Row>
-                        <Col span="24">
+                        <Col span="3">
+                            <OrgSelect></OrgSelect>
+                        </Col>
+                        <Col span="21">
+                            <Table border :columns="userTableTitle" :data="tableData"></Table>
+                            <br/>
+                            <Page :total="total" show-sizer show-elevator show-total v-on:on-change="loadData" />
+                            <br>
+                        </Col>
+                    </Row>
+
+
+                    <Row>
+                        <Col span="24" align="right">
                             <Button type="primary" size="large" @click="userModel = true">新增</Button>
                             <Button type="primary" size="large" @click="getData(2)">导出过虑数据</Button>
                             <Button type="primary" size="large" @click="userModel = true">导出所有数据</Button>
                         </Col>
                     </Row>
                 </Card>
+
             </Col>
         </Row>
         <Modal v-model="userModel" title="用户新增" @on-ok="handleSubmit('formValidate')" @on-cancel="handleReset('formValidate')">
@@ -100,7 +110,9 @@
 <script>
     import axios from 'axios';
     import config from '../config/config'
+    import OrgSelect from "../components/OrgSelect";
     export default {
+        components: {OrgSelect},
         data () {
             return {
                 page:2,
@@ -228,7 +240,8 @@
                     //     { required: true, type: 'date', message: 'Please select the date', trigger: 'change' }
                     // ],
                     seg: [
-                        { required: false, type: 'integer', message: '请输入一个整数', trigger: 'change' }
+                        { required: true, type: 'integer', message: '请输入一个整数', trigger: 'change' },
+                        { min: 1, type: 'integer', message: '请输入要不小于1', trigger: 'change' }
                     ],
                     remark: [
                         { required: true, message: '请输入备注内容', trigger: 'blur' },
@@ -257,12 +270,12 @@
                     title:'删除确认提示',
                     content:'确定删除' + user.username,
                     onOk:function () {
-                        let url = config.url.server.zfz_user.user + 'delete?id=' + xthis.userData[index].id;
+                        let url = config.url.server.zfz_user.user + config.url.opt.delete +'?id=' + xthis.userData[index].id;
                         axios.get(url).then(function (res) {
 
                             console.log(res.data);//返回的整个对象
                             let d = res.data;
-                            if ( d.code == 8001 ) {
+                            if ( d.code == config.code.response.SUCCESS ) {
 
                                 xthis.$Message.success('删除成功!');
 
@@ -272,21 +285,15 @@
                             } else {
                                 xthis.$Message.error('删除失败!');
                             }
-
                         })
                     },
                     onCancel:function () {
 
                     }
                 });
-
-
-
-
-
             },
             getData(index){
-                let url = config.url.server.zfz_user.user + 'get?id='+ this.userData[index].id;
+                let url = config.url.server.zfz_user.user + config.url.opt.get + '?id='+ this.userData[index].id;
                 axios.get(url).then(function (data) {
                     console.log("请求结束");
                     console.log(data);
@@ -311,18 +318,19 @@
 
                         console.log(res.data);//返回的整个对象
                         let d = res.data;
-                        if ( d.code == 8001 ) {
+                        if ( d.code == config.code.response.SUCCESS ) {
 
                             xthis.$Message.success( opt + '成功!');
-
-                            xthis.userData.unshift(d.data);
-                            xthis.total += 1;
+                            if(opt=='新增') {
+                                xthis.userData.unshift(d.data);
+                                xthis.total += 1;
+                            }
                         } else {
                             xthis.$Message.error(opt + '失败!');
                         }
                     }).catch(function () {
                         xthis.$Message.error(opt + "异常 ");
-                    })
+                    });
 
 
 
@@ -331,18 +339,26 @@
             handleReset (name) {
                 this.$refs[name].resetFields();
             },
-            loadData:function (page) {
+            loadData:function (page,orgIds) {
                 this.page = page?page:1;
 
-                // let url = config.userServerUrl + 'search?page='+ this.page +'&limit=10';
-                let url = config.url.server.zfz_user.user + 'search?page='+ this.page +'&limit=10';
+                let url = config.url.server.zfz_user.user + config.url.opt.search ;
+                let param = {
+                    params:{
+                        page:this.page,
+                        limit:10,
+                    }
+                };
+                if(orgIds){
+                    param.params.orgIds = orgIds;
+                }
                 let xthis = this;
-                axios.get(url)
+                axios.get(url,param)
                     .then(function (res) {
                         console.log("请求结束");
                         console.log(res);
 
-                        if(res.data.code == 8001){
+                        if(res.data.code == config.code.response.SUCCESS){
 
                             xthis.userData =  res.data.data;
                             if(xthis.page==1) {
@@ -365,11 +381,11 @@
         },
         computed:{
           tableData:function () {
-              // this.total = this.tableData.length;
               return this.userData;
           }
         },
         mounted:function () {
+            //初始化后执行
             // this.$nextTick(function () {
                 this.loadData();
             // })

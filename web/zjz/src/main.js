@@ -36,17 +36,21 @@ axios.interceptors.request.use(function (config) {
     console.log(" axios 请求拦截 " );
     console.log(config );
 
-    let url = config.url;
-    if(url.indexOf("?")>0){
-        url +=  "&accesstoken=abc";
-    }else{
-        url += "?accesstoken=abc";
-    }
     let optId = 'zhc';
-    url = url + '&optId=' + optId;
-    config.url = url;
-
-
+    let accesstoken = 'abc';
+    if(config.method=="get") {
+        let url = config.url;
+        if (url.indexOf("?") > 0) {
+            url += "&accesstoken=" + accesstoken;
+        } else {
+            url += "?accesstoken=" + accesstoken;
+        }
+        url = url + '&optId=' + optId;
+        config.url = url;
+    }else if(config.method == "post"){
+        config.data.params.accesstoken = accesstoken;
+        config.data.params.optId = optId;
+    }
 
     return config;
 }, function (error) {

@@ -7,6 +7,8 @@ import cn.zfz.pojo.base.Base;
  */
 public class User extends Base {
 
+    private String orgId;
+    private String[] orgIds;//多个组织ID，用于查询
     private String username;//用户名
     private String password;//密码
     private String nickname;//昵称
@@ -16,6 +18,22 @@ public class User extends Base {
     private String icon;//头像
 
     public User(){}
+
+    public String getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(String orgId) {
+        this.orgId = orgId;
+    }
+
+    public String[] getOrgIds() {
+        return orgIds;
+    }
+
+    public void setOrgIds(String[] orgIds) {
+        this.orgIds = orgIds;
+    }
 
     public String getUsername() {
         return username;
