@@ -4,19 +4,47 @@ plugins {
     id 'java'
 }
 
-group = 'com.zhc'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
 
-repositories {
-    mavenCentral()
+//配置所有项目公共内容
+allprojects {
+    //指定需要的插件
+    //指定语言
+    apply plugin: 'java'
+    //指定编辑器
+    apply plugin: 'idea'
+    //配置项目信息
+    group 'com.zhc'
+    version '1.0-SNAPSHOT'
+
+    //配置仓库
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/"}
+        mavenCentral()
+        jcenter()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' } //转换pdf使用
+    }
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
+//配置子工程
+subprojects {
+    //指定编译版本
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    //配置字符编码
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
 
-test {
-    useJUnitPlatform()
+    //配置全局依赖版本信息
+    ext {
+        junitVersion = '4.12'
+    }
+
+    //配置子模块依赖
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version:"${junitVersion}"
+    }
 }
