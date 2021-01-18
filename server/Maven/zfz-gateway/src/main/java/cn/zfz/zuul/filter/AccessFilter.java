@@ -18,6 +18,7 @@ public class AccessFilter extends ZuulFilter {
      * <li>routing 此过虑器在路由请求时执行</li>
      * <li>post：在routing和error过滤器之后被调用</li>
      * <li>error 请求路由发生错误时执行</li>
+     *
      * @return
      */
     @Override
@@ -28,6 +29,7 @@ public class AccessFilter extends ZuulFilter {
 
     /**
      * 此过虑器执行的顺序（可能会有众多的过虑器，所以要排顺序）
+     *
      * @return
      */
     @Override
@@ -37,6 +39,7 @@ public class AccessFilter extends ZuulFilter {
 
     /**
      * 判断此过虑器是否需要被执行，false为不执行，true为执行
+     *
      * @return
      */
     @Override
@@ -46,6 +49,7 @@ public class AccessFilter extends ZuulFilter {
 
     /**
      * 具体过虑逻辑
+     *
      * @return
      * @throws ZuulException
      */
@@ -55,8 +59,8 @@ public class AccessFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
         String accesstoken = request.getParameter("accesstoken");
-        logger.info("accesstoken="+accesstoken);
-        if(accesstoken == null){
+        logger.info("accesstoken=" + accesstoken);
+        if (accesstoken == null) {
             logger.warn(" no permisstion ");
 //            ctx.setSendZuulResponse(true);
 //            ctx.setResponseStatusCode(200);
@@ -66,7 +70,7 @@ public class AccessFilter extends ZuulFilter {
             ctx.setResponseBody("{\"result\":\"accessToken为空!\"}");
             ctx.getResponse().setContentType("text/html;charset=UTF-8");
 
-        }else{
+        } else {
             //正常通过
 
             //或者可以设置

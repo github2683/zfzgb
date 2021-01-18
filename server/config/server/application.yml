@@ -1,4 +1,3 @@
-
 server:
   port: 8001 #注册中心端口
 eureka:

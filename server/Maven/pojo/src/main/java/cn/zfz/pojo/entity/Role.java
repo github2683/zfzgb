@@ -6,7 +6,9 @@ public class Role extends Base {
 
     private String name;//角色名称
     private String icon;//角色图标
-    public Role(){}
+
+    public Role() {
+    }
 
     public String getName() {
         return name;

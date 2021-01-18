@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 用户服务接口
  * UserServiceCallBack 中定义了容错
  */
-@FeignClient(value = "zfz-user",fallback = UserServiceCallBack.class)
-public interface UserService  extends UserServiceApi<User>{
+@FeignClient(value = "zfz-user", fallback = UserServiceCallBack.class)
+public interface UserService extends UserServiceApi<User> {
 
 }

@@ -20,8 +20,9 @@ import org.springframework.web.client.RestTemplate;
 public class WealthApplication {
 
     @Bean
-    @LoadBalanced  //客户端 负载均衡
-    RestTemplate restTemplate(){
+    @LoadBalanced
+        //客户端 负载均衡
+    RestTemplate restTemplate() {
         return new RestTemplate();
     }
 

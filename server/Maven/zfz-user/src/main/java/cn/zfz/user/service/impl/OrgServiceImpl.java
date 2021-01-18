@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 组织的个性化功能实现
  */
 @Service
-public class OrgServiceImpl extends BaseServiceImpl<Org,OrgDao> implements OrgService {
+public class OrgServiceImpl extends BaseServiceImpl<Org, OrgDao> implements OrgService {
 
     @Autowired
     private OrgDao orgDao;

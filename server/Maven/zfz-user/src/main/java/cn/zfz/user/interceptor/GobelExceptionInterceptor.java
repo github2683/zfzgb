@@ -15,15 +15,19 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GobelExceptionInterceptor {
 
     private static final Logger logger = LoggerFactory.getLogger(GobelExceptionInterceptor.class);
+
     /**
      * 应用到所有@RequestMapping注解方法，在其执行之前初始化数据绑定器
+     *
      * @param binder
      */
     @InitBinder
-    public void initBinder(WebDataBinder binder) {}
+    public void initBinder(WebDataBinder binder) {
+    }
 
     /**
      * 把值绑定到Model中，使全局@RequestMapping可以获取到该值
+     *
      * @param model
      */
     @ModelAttribute
@@ -32,7 +36,7 @@ public class GobelExceptionInterceptor {
     }
 
     @ExceptionHandler(Exception.class)
-    public Result excuteException(Exception ex){
+    public Result excuteException(Exception ex) {
 
 
         Result result = new Result();
@@ -40,7 +44,7 @@ public class GobelExceptionInterceptor {
         result.setMsg(Constants.RESPONE_MSG_EXCEPTION);
         result.setData(ex.getMessage());
 
-        logger.error( this.getClass().getName() + " ===========> 注解拦截器 " + ex.getMessage());
+        logger.error(this.getClass().getName() + " ===========> 注解拦截器 " + ex.getMessage());
         ex.printStackTrace();
 
         return result;

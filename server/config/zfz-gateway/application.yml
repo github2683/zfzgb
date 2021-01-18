@@ -5,17 +5,17 @@ spring:
     name: zfz-gateway
 zuul:
   routes:
-#     传统方式
-#    api-a-url:
-#      path: /api-a-url/**
-#      url:  http://localhost:8011/
-#     面向服务方式
+    #     传统方式
+    #    api-a-url:
+    #      path: /api-a-url/**
+    #      url:  http://localhost:8011/
+    #     面向服务方式
     api-user-url:
       path: /zfz-user/**
       serviceId:  zfz-user
     api-wealth-url:
-          path: /zfz-wealth/**
-          serviceId:  zfz-wealth
+      path: /zfz-wealth/**
+      serviceId:  zfz-wealth
 eureka:
   client:
     serviceUrl:

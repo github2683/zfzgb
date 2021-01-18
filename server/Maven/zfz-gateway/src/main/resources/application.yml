@@ -5,19 +5,19 @@ spring:
     name: zfz-gateway
 zuul:
   routes:
-#     传统方式
-#    api-a-url:
-#      path: /api-a-url/**
-#      url:  http://localhost:8011/
-#     面向服务方式
+    #     传统方式
+    #    api-a-url:
+    #      path: /api-a-url/**
+    #      url:  http://localhost:8011/
+    #     面向服务方式
     api-user-url:
       path: /zfz-user/**
       serviceId:  zfz-user
     api-wealth-url:
-          path: /zfz-wealth/**
-          serviceId:  zfz-wealth
+      path: /zfz-wealth/**
+      serviceId:  zfz-wealth
 eureka:
   client:
     serviceUrl:
-#      defaultZone:  http://localhost:8001/eureka/ #注册中心
+      #      defaultZone:  http://localhost:8001/eureka/ #注册中心
       defaultZone:  http://localhost:8001/eureka/,http://localhost:8002/eureka/,http://localhost:8004/eureka/ #注册中心

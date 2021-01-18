@@ -17,12 +17,13 @@ public class Encrypt {
 
     /**
      * 加密
+     *
      * @param source
      * @param standardCharsets
      * @return 返回加密后的字符串
      */
-    public static String encode64(String source,Charset standardCharsets){
-        if(standardCharsets == null){
+    public static String encode64(String source, Charset standardCharsets) {
+        if (standardCharsets == null) {
             standardCharsets = StandardCharsets.UTF_8;
         }
         return Base64.getEncoder().encodeToString(source.getBytes(standardCharsets));
@@ -30,39 +31,42 @@ public class Encrypt {
 
     /**
      * 解密
+     *
      * @param str64
      * @param standardCharsets
      * @return 返回解密后的字符串
      */
-    public static String decode64(String str64,Charset standardCharsets){
-        if(standardCharsets == null){
+    public static String decode64(String str64, Charset standardCharsets) {
+        if (standardCharsets == null) {
             standardCharsets = StandardCharsets.UTF_8;
         }
-        return new String( Base64.getDecoder().decode(str64),standardCharsets);
+        return new String(Base64.getDecoder().decode(str64), standardCharsets);
     }
 
     /**
      * MD5 单向加密
+     *
      * @param source
      * @param standardCharsets
      * @return 返回32位字符串
      */
-    public static String encodeMD5(String source,Charset standardCharsets)  {
-        return returnEncode(source,"MD5",standardCharsets);
+    public static String encodeMD5(String source, Charset standardCharsets) {
+        return returnEncode(source, "MD5", standardCharsets);
     }
 
     /**
-     *  SHA 单向加密
+     * SHA 单向加密
+     *
      * @param source
      * @param standardCharsets
      * @return 返回 40位字符串
      */
-    public static String encodeSHA(String source,Charset standardCharsets)  {
-        return returnEncode(source,"SHA",standardCharsets);
+    public static String encodeSHA(String source, Charset standardCharsets) {
+        return returnEncode(source, "SHA", standardCharsets);
     }
 
-    private static String returnEncode(String source,String fmt,Charset standardCharsets){
-        if(standardCharsets == null){
+    private static String returnEncode(String source, String fmt, Charset standardCharsets) {
+        if (standardCharsets == null) {
             standardCharsets = StandardCharsets.UTF_8;
         }
         MessageDigest messageDigest = null;

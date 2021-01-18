@@ -27,43 +27,42 @@ public class UserController extends BaseController<User> implements UserServiceA
     @Override
     public Result add(User user) throws Exception {
 
-        user.setPassword(Encrypt.encodeMD5(user.getPassword(),null));
+        user.setPassword(Encrypt.encodeMD5(user.getPassword(), null));
         Integer affectRow = service.add(user);
 
-        return responseAdd(user,affectRow,this.getClass());
+        return responseAdd(user, affectRow, this.getClass());
     }
 
 
     public Result delete(String id) throws Exception {
-        Integer affectRow =  service.delete(id);
+        Integer affectRow = service.delete(id);
 
-        return responseDelete(id,affectRow,this.getClass());
+        return responseDelete(id, affectRow, this.getClass());
     }
 
 
     public Result update(User user) throws Exception {
         Integer affectRow = service.update(user);
 
-        return responseUpdate(user,affectRow,this.getClass());
+        return responseUpdate(user, affectRow, this.getClass());
     }
 
 
     public Result get(String id) throws Exception {
         User user = service.get(id);
 
-        return responseGet(id,user,this.getClass());
+        return responseGet(id, user, this.getClass());
     }
-
 
 
     public Result search(User user) throws Exception {
         List<User> users = service.search(user);
-        if(user.getPage() == null || user.getPage() == 1){
+        if (user.getPage() == null || user.getPage() == 1) {
             Integer total = service.searchCount(user);
-            total = total==null?0:total;
+            total = total == null ? 0 : total;
             user.setTotal(total);
         }
-        return responseSearch(user,users,this.getClass());
+        return responseSearch(user, users, this.getClass());
     }
 
 
@@ -74,6 +73,6 @@ public class UserController extends BaseController<User> implements UserServiceA
         List<User> users = new ArrayList();
         users.add(u);
 
-        return responseSearch(user,users,this.getClass());
+        return responseSearch(user, users, this.getClass());
     }
 }

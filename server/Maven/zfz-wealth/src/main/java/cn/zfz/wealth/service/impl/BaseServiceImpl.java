@@ -15,12 +15,13 @@ public class BaseServiceImpl implements BaseService {
 
     /**
      * 调用 服务方法，如果出错，则调用 fallbackMethod 里的访求
+     *
      * @param id
      * @return
      */
 //    @HystrixCommand(fallbackMethod = "getUser2")
-    public User getUser(String id){
-        return  new User();
+    public User getUser(String id) {
+        return new User();
     }
 
 

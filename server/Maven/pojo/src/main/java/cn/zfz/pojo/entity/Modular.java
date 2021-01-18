@@ -6,7 +6,8 @@ public class Modular extends Base {
     private String name;//模块名称
     private String icon;//模块图标
 
-    public Modular(){}
+    public Modular() {
+    }
 
     public String getName() {
         return name;

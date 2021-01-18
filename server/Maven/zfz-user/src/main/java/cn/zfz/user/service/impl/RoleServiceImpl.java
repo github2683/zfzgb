@@ -10,10 +10,11 @@ import org.springframework.stereotype.Service;
  * 角色的个性化功能实现
  */
 @Service
-public class RoleServiceImpl extends BaseServiceImpl<Role,RoleDao> implements RoleService {
+public class RoleServiceImpl extends BaseServiceImpl<Role, RoleDao> implements RoleService {
 
     @Autowired
     private RoleDao roleDao;
+
     @Autowired
     public void setRoleDao(RoleDao roleDao) {
         this.dao = roleDao;

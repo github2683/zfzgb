@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 权限的个性化功能实现
  */
 @Service
-public class PermissionServiceImpl extends BaseServiceImpl<Permission,PermissionDao> implements PermissionService {
+public class PermissionServiceImpl extends BaseServiceImpl<Permission, PermissionDao> implements PermissionService {
 
     @Autowired
     private PermissionDao permissionDao;

@@ -24,7 +24,7 @@ public class BaseController {
 //        Result r = restTemplate.getForEntity(url,Result.class).getBody();
 //        System.out.println(JSONObject.toJSONString(r));
 
-        Result r  = userService.get(userId);
+        Result r = userService.get(userId);
 
 
         return r;

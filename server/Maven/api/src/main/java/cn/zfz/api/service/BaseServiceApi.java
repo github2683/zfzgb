@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface BaseServiceApi<T extends Base> {
 
     @GetMapping("/add")
-    Result add(T et) throws Exception ;
+    Result add(T et) throws Exception;
 
     @GetMapping("/delete")
-    Result delete(@RequestParam("id") String id) throws Exception ;
+    Result delete(@RequestParam("id") String id) throws Exception;
 
     @GetMapping("/update")
-    Result update(T et) throws Exception ;
+    Result update(T et) throws Exception;
 
 
     @GetMapping("/get")
-    Result get(@RequestParam("id") String id) throws Exception ;
+    Result get(@RequestParam("id") String id) throws Exception;
 
     @GetMapping("/search")
-    Result search(T et) throws Exception ;
+    Result search(T et) throws Exception;
 
 
 }

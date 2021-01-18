@@ -13,11 +13,11 @@ public class Base extends Search {
     private LocalDateTime updateTime;
     private String optId;
 
-    public Base(){
+    public Base() {
     }
 
-    public void addInit(){
-        if( this.id == null || this.id.trim().length()==0 ){
+    public void addInit() {
+        if (this.id == null || this.id.trim().length() == 0) {
             this.id = UUID.randomUUID().toString();
         }
         this.updateTime = LocalDateTime.now();
@@ -25,7 +25,7 @@ public class Base extends Search {
         this.status = 1;
     }
 
-    public void updateInit(){
+    public void updateInit() {
         this.updateTime = LocalDateTime.now();
     }
 

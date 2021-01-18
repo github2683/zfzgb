@@ -69,9 +69,9 @@ public class Search {
     }
 
     public Integer getStart() {
-        if(this.page == null || this.page == 0 || this.page == 1 ){
+        if (this.page == null || this.page == 0 || this.page == 1) {
             return 0;
-        }else {
+        } else {
             return (this.page - 1) * this.limit;
         }
     }

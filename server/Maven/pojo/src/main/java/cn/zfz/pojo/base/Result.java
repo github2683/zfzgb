@@ -9,7 +9,8 @@ public class Result {
     private Integer limit;//一页几条
     private Integer total;//总数
 
-    public Result(){}
+    public Result() {
+    }
 
     public String getMsg() {
         return msg;

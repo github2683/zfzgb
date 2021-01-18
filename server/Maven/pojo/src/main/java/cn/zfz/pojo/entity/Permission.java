@@ -8,7 +8,9 @@ public class Permission extends Base {
     private Integer type;//权限代码
     private String url;//权限请求url
     private String icon;//权限图标
-    public Permission(){}
+
+    public Permission() {
+    }
 
     public String getName() {
         return name;

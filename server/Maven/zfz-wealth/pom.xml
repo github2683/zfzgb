@@ -31,14 +31,14 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-ribbon</artifactId>-->
-            <!--<version>${spring-cloud-starter.version}</version>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-starter-ribbon</artifactId>-->
+        <!--<version>${spring-cloud-starter.version}</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
-            <!--<version>${spring-cloud-starter.version}</version>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+        <!--<version>${spring-cloud-starter.version}</version>-->
         <!--</dependency>-->
         <!--代替以上两者-->
         <dependency>

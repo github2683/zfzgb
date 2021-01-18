@@ -5,29 +5,30 @@
 
     <insert id="add" parameterType="cn.zfz.pojo.entity.User">
         INSERT INTO zfz.zfz_user
-        (id,org_id, username, phone, weixin, email, password, icon, seg, remark,status, create_time, update_time, opt_id) VALUES
+        (id,org_id, username, phone, weixin, email, password, icon, seg, remark,status, create_time, update_time,
+        opt_id) VALUES
         (#{id},#{orgId},#{username},#{phone},#{weixin},#{email},#{password},#{icon},#{seg},#{remark},#{status},#{createTime},#{updateTime},#{optId})
     </insert>
     <update id="delete">
-        UPDATE  zfz.zfz_user SET status = 0  WHERE id=#{id}
+        UPDATE zfz.zfz_user SET status = 0 WHERE id=#{id}
     </update>
 
-   <select id="get" resultType="cn.zfz.pojo.entity.User">
-       SELECT * FROM zfz.zfz_user  WHERE id=#{id}
-   </select>
+    <select id="get" resultType="cn.zfz.pojo.entity.User">
+        SELECT * FROM zfz.zfz_user WHERE id=#{id}
+    </select>
     <update id="update" parameterType="cn.zfz.pojo.entity.User">
         UPDATE zfz.zfz_user SET
-            <if test="username != null and username != '' "> username = #{username},</if>
-            <if test="orgId != null and orgId != '' "> org_id = #{orgId},</if>
-            <if test="phone != null and phone != '' ">phone = #{phone},</if>
-            <if test="weixin != null and weixin != '' ">weixin = #{weixin},</if>
-            <if test="email != null and email != '' ">email = #{email},</if>
-            <if test="password != null and password != '' ">password = #{password},</if>
-            <if test="icon != null and icon != '' ">icon = #{icon},</if>
-            <if test="seg != null and seg != '' ">seg = #{seg},</if>
-            <if test="remark != null and remark != '' ">remark =#{remark},</if>
-            <if test="optId != null and optId != '' ">opt_id = #{optId},</if>
-            update_time = #{updateTime}
+        <if test="username != null and username != '' ">username = #{username},</if>
+        <if test="orgId != null and orgId != '' ">org_id = #{orgId},</if>
+        <if test="phone != null and phone != '' ">phone = #{phone},</if>
+        <if test="weixin != null and weixin != '' ">weixin = #{weixin},</if>
+        <if test="email != null and email != '' ">email = #{email},</if>
+        <if test="password != null and password != '' ">password = #{password},</if>
+        <if test="icon != null and icon != '' ">icon = #{icon},</if>
+        <if test="seg != null and seg != '' ">seg = #{seg},</if>
+        <if test="remark != null and remark != '' ">remark =#{remark},</if>
+        <if test="optId != null and optId != '' ">opt_id = #{optId},</if>
+        update_time = #{updateTime}
         WHERE id=#{id}
     </update>
 
@@ -35,7 +36,7 @@
         SELECT * from zfz.zfz_user WHERE status > 0
         <if test="orgIds != null and orgIds != '' ">
             AND org_id IN
-            <foreach collection="orgIds" item="orgId" open="(" separator="," close=")" >
+            <foreach collection="orgIds" item="orgId" open="(" separator="," close=")">
                 #{orgId}
             </foreach>
         </if>
@@ -43,11 +44,11 @@
     </select>
 
     <select id="searchCount" resultType="java.lang.Integer" parameterType="cn.zfz.pojo.entity.User">
-        SELECT COUNT(*) from zfz.zfz_user  WHERE status > 0
+        SELECT COUNT(*) from zfz.zfz_user WHERE status > 0
         <if test="orgIds != null and orgIds != '' ">
             AND org_id IN
-            <foreach collection="orgIds" item="orgId" open="(" separator="," close=")" >
-                  #{orgId}
+            <foreach collection="orgIds" item="orgId" open="(" separator="," close=")">
+                #{orgId}
             </foreach>
         </if>
     </select>

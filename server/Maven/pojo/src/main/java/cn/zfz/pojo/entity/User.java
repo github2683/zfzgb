@@ -17,7 +17,8 @@ public class User extends Base {
     private String email;
     private String icon;//头像
 
-    public User(){}
+    public User() {
+    }
 
     public String getOrgId() {
         return orgId;
